@@ -2,11 +2,11 @@ import React from 'react';
 
 export const Hero: React.FC = () => {
   return (
-    <div className="relative min-h-[80vh] flex flex-col justify-center max-w-[1600px] mx-auto px-6 py-24">
+    <div className="relative min-h-screen flex flex-col justify-center max-w-[1600px] mx-auto px-6 py-24 pb-32">
       <div className="absolute top-0 left-6 border-l border-border h-24"></div>
       
       <div className="mb-8 font-mono text-xs text-zinc-500 tracking-widest uppercase">
-        // EST. 2024 -- R&D DIVISION
+        // EST. 2025 -- R&D DIVISION
       </div>
 
       <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.9] text-white mb-12">
@@ -25,10 +25,6 @@ export const Hero: React.FC = () => {
         </a>
       </div>
       
-      {/* Decorative Grid Lines */}
-      <div className="absolute right-0 bottom-0 w-1/3 h-px bg-border"></div>
-      <div className="absolute right-1/3 bottom-0 w-px h-32 bg-border"></div>
     </div>
   );
 };
-
