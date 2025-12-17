@@ -11,14 +11,13 @@ export const Navbar: React.FC = () => {
         </div>
         
         <div className="hidden md:flex gap-10">
-          <a href="#offerings" className="font-mono text-sm text-zinc-400 hover:text-white transition-colors">[S] SERVICES</a>
-          <a href="#lace" className="font-mono text-sm text-zinc-400 hover:text-white transition-colors">[L] LACE</a>
-          <a href="#team" className="font-mono text-sm text-zinc-400 hover:text-white transition-colors">[T] TEAM</a>
+          <a href="#offerings" className="font-mono text-sm text-zinc-400 hover:text-white transition-colors">[01] DOMAINS</a>
+          <a href="#lace" className="font-mono text-sm text-zinc-400 hover:text-white transition-colors">[02] LACE</a>
+          <a href="#about" className="font-mono text-sm text-zinc-400 hover:text-white transition-colors">[03] ABOUT</a>
+          <a href="#team" className="font-mono text-sm text-zinc-400 hover:text-white transition-colors">[04] TEAM</a>
         </div>
 
-        <div className="font-mono text-sm text-zinc-600 hidden sm:block">
-          SYS.STATUS: ONLINE
-        </div>
+        <div className="hidden sm:block w-32"></div>
       </div>
     </nav>
   );

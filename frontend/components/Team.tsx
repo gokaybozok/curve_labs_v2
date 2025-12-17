@@ -4,19 +4,19 @@ import { TeamMember } from '../types';
 
 const team: TeamMember[] = [
   {
-    name: 'Cem F Dagdelen',
-    role: 'CEO / Lead Researcher',
-    bio: 'Systems theorist focused on the intersection of cybernetics and generative AI.'
+    name: 'Cem Dagdelen',
+    role: 'Founder',
+    bio: 'Economist turned systems designer. Building at the human-AI interface.'
   },
   {
-    name: 'Oguzhan Yayla',
+    name: 'Oguzhan (Ozzi) Yayla',
     role: 'CTO',
-    bio: 'Architecting high-scale inference engines and secure enterprise data pipelines.'
+    bio: 'AI Systems Architect. Agent of agents.'
   },
   {
     name: 'Palina Sarokina',
-    role: 'Exec Associate',
-    bio: 'Operationalizing R&D workflows and managing strategic partnerships.'
+    role: 'Executive Associate',
+    bio: "Operations and coordination. The lab's connective tissue."
   }
 ];
 
@@ -25,7 +25,7 @@ export const Team: React.FC = () => {
     <Section id="team" className="bg-background">
       <div className="max-w-[1600px] mx-auto border-x border-border">
         <div className="p-8 lg:p-12 border-b border-border">
-          <h2 className="font-mono text-xs text-zinc-500 uppercase tracking-widest">[03] The Unit</h2>
+          <h2 className="font-mono text-xs text-zinc-500 uppercase tracking-widest">[04] Team</h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">

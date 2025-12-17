@@ -8,7 +8,7 @@ export const CTA: React.FC = () => {
       <div className="max-w-[1600px] mx-auto border-x border-border flex flex-col lg:flex-row min-h-[320px]">
         
         {/* Text side */}
-        <div className="flex-1 p-8 lg:p-12 flex flex-col gap-8 relative overflow-hidden">
+        <div className="flex-1 p-8 lg:p-12 flex flex-col gap-10 justify-center items-start text-left relative overflow-hidden">
           {/* Subtle dot grid backdrop */}
           <div 
             className="absolute inset-0 opacity-[0.06] pointer-events-none"
@@ -16,15 +16,15 @@ export const CTA: React.FC = () => {
           ></div>
           
           <div className="font-mono text-xs tracking-widest text-zinc-500 relative z-10">
-            INITIALIZATION
+            [05] CONTACT
           </div>
 
-          <div className="relative z-10 space-y-4">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
-              Construct your<br className="hidden md:block" /> ontology.
+          <div className="relative z-10 space-y-4 w-full">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white">
+              The Lab is open.
             </h2>
             <p className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-2xl font-mono">
-              Stop searching. Start knowing. Integrate LACE into your enterprise workflow today.
+              Get in touch.
             </p>
           </div>
         </div>

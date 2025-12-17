@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section } from './ui/Section';
-import { Sparkles, FileText, ArrowUpRight } from 'lucide-react';
+import { FileText } from 'lucide-react';
 import laceStar from '../public/lace-star.svg';
 import { Article } from '../types';
 
@@ -23,7 +23,7 @@ const articles: Article[] = [
 
 export const Lace: React.FC = () => {
   return (
-    <Section id="lace" className="bg-black mb-48 overflow-hidden">
+    <Section id="lace" className="bg-black pb-48 overflow-hidden">
       <div className="w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           
@@ -34,31 +34,26 @@ export const Lace: React.FC = () => {
               className="absolute inset-0 bg-center bg-cover opacity-70"
               style={{ backgroundImage: 'url(/lace-bg.png)' }}
             ></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/15 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/8 to-transparent"></div>
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #52525b 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
             
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 border border-zinc-700 rounded-full bg-zinc-800/50 mb-8">
-                <Sparkles className="w-3 h-3 text-zinc-300" />
-                <span className="font-mono text-[10px] text-zinc-300 tracking-wider">PROPRIETARY TECH</span>
-              </div>
-              
-              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 flex items-center gap-4">
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 mt-8 md:mt-10 flex items-center gap-4">
                 <img src={laceStar} alt="" className="w-12 h-12 md:w-16 md:h-16" />
                 LACE
               </h2>
               <p className="text-xl text-white font-light leading-relaxed max-w-2xl">
-                Language Analysis & Contextual Engine. 
+                From static archives to evolutive cognitive systems.
                 <br /><br />
-                Most KM solutions are just search bars. LACE is a digestive system for your data. It ingests unstructured noise and outputs structured, generative ontologies.
+                Capture fragments. Watch patterns emerge. Inhabit your own knowledge.
               </p>
             </div>
 
             <div className="relative z-10 mt-12">
-               <button className="flex items-center gap-3 text-sm font-mono text-white hover:text-zinc-300 transition-colors border-b border-white hover:border-zinc-300 pb-1">
-                 REQUEST DEMO ACCESS <ArrowUpRight className="w-4 h-4" />
-               </button>
+              <button className="flex items-center gap-3 text-base md:text-lg font-mono text-white hover:text-zinc-300 transition-colors border-b border-white hover:border-zinc-300 pb-1">
+                EXPLORE LACE →
+              </button>
             </div>
           </div>
 
@@ -68,7 +63,7 @@ export const Lace: React.FC = () => {
             <div className="absolute top-0 right-0 bottom-0 w-10 bg-black"></div>
             <div className="absolute top-0 left-full bottom-0 w-screen bg-black"></div>
             <h3 className="font-mono text-xs text-zinc-500 mb-8 uppercase tracking-widest border-b border-border pb-4 w-full">
-              [LACE] Research & Logs
+              [02] Lace Research & Logs
             </h3>
             
             <div className="space-y-6 flex-1">
@@ -104,6 +99,9 @@ export const Lace: React.FC = () => {
 
         </div>
       </div>
+
+      {/* Fade out into background (hide global grid below) */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-black" />
     </Section>
   );
 };

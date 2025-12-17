@@ -54,6 +54,9 @@ coverage/
 # Vite
 .vite/
 
+# Local npm cache (Cursor sandbox workaround)
+frontend/.npm-cache/
+
 # Testing
 .coverage/
 

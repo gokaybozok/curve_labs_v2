@@ -1,87 +1,101 @@
 import React from 'react';
 import { Section } from './ui/Section';
 
-interface ServiceItem {
+interface DomainItem {
   id: string;
   number: string;
   title: string;
   description: string;
+  imageSrc: string;
 }
 
-const services: ServiceItem[] = [
+const domains: DomainItem[] = [
   {
-    id: 'ekm',
+    id: 'psyche',
     number: '01',
-    title: 'Enterprise KM',
-    description: 'Scalable systems designed to ingest, process, and retrieve corporate knowledge with semantic precision.',
+    title: 'Psyche',
+    description: 'Cognitive systems for individuals and human-AI collaboration. Externalizing thought. Integrating intelligence.',
+    imageSrc: '/domains/psyche.png',
   },
   {
-    id: 'audit',
+    id: 'polis',
     number: '02',
-    title: 'AI System Audits',
-    description: 'Rigorous evaluation of existing AI deployments for hallucination rates, security vulnerabilities, and ontological drift.',
-  },
-  {
-    id: 'agentic',
-    number: '03',
-    title: 'Agentic Infrastructure',
-    description: 'Custom-built autonomous agents capable of executing complex workflows across your software stack.',
-  },
-  {
-    id: 'ontology',
-    number: '04',
-    title: 'Ontology Design',
-    description: 'Mapping unstructured data lakes into rigorous graph structures for deterministic AI reasoning.',
+    title: 'Polis',
+    description: 'Coordination systems for collectives. Distributed governance. Organizations that learn.',
+    imageSrc: '/domains/polis.png',
   }
 ];
 
 export const Offerings: React.FC = () => {
   return (
-    <Section id="offerings" className="bg-background border-t-0 pt-32">
-      {/* Section grid overlay to keep the lattice visible across the offerings area */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-15"
-        style={{ 
-          backgroundImage: 'linear-gradient(to right, #27272a 1px, transparent 1px), linear-gradient(to bottom, #27272a 1px, transparent 1px)',
-          backgroundSize: '120px 120px'
+    <Section id="offerings" className="bg-transparent border-t-0 pt-32 min-h-screen overflow-hidden">
+      {/* One-piece fade from global grid -> solid background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'linear-gradient(to bottom, rgba(9,9,11,1) 0%, rgba(9,9,11,1) 100%)',
         }}
-      ></div>
+      />
 
       {/* Decorative Grid Lines */}
       <div className="relative max-w-[1600px] mx-auto">
         <div className="absolute right-0 bottom-0 w-1/3 h-px bg-border"></div>
         <div className="absolute right-1/3 bottom-0 w-px h-32 bg-border"></div>
       </div>
-      <div className="max-w-[1600px] mx-auto pb-48 border-t border-border relative z-10">
+      <div className="max-w-[1600px] mx-auto pb-64 relative z-10">
+        {/* Decorative corner lines (as drawn) */}
+        <div className="hidden lg:block pointer-events-none absolute left-0 top-0 h-px w-[420px] bg-border/70" />
+
         <div className="grid grid-cols-1 lg:grid-cols-4">
           
           {/* Header Column */}
           <div className="p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-border">
-            <h2 className="font-mono text-xs text-zinc-500 mb-4 uppercase tracking-widest">[01] Offerings</h2>
-            <h3 className="text-3xl font-bold mb-6 tracking-tight">System<br/>Capabilities</h3>
-            <p className="text-zinc-400 text-sm leading-relaxed">
-              Our interventions range from high-level architectural audits to the deployment of full-stack agentic workers.
+            <h2 className="font-mono text-xs text-zinc-500 mb-4 uppercase tracking-widest">[01] Domains</h2>
+            <h3 className="text-3xl font-bold mb-6 tracking-tight">Domains</h3>
+            <p className="text-zinc-300 text-lg md:text-xl leading-relaxed">
+              Our digital souls operate at two scales.
             </p>
           </div>
 
-          {/* Services Grid - Spanning 3 columns */}
-          <div className="col-span-1 lg:col-span-3 grid grid-cols-1 md:grid-cols-2">
-            {services.map((service, idx) => (
+          {/* Domains Grid - Spanning 3 columns */}
+          <div className="col-span-1 lg:col-span-3 grid grid-cols-1 md:grid-cols-2 relative">
+            {/* Bottom-left vertical + bottom-right horizontal accents */}
+            <div className="hidden lg:block pointer-events-none absolute left-0 top-full h-40 w-px bg-border/70" />
+            <div className="hidden lg:block pointer-events-none absolute right-0 top-full h-px w-20 bg-border/70" />
+
+            {domains.map((domain, idx) => (
               <div 
-                key={service.id} 
+                key={domain.id} 
                 className={`
-                  group p-8 lg:p-12 border-b border-border bg-background
-                  ${idx % 2 === 0 ? 'md:border-r' : ''} 
-                  hover:bg-zinc-900/50 transition-colors duration-300
+                  group border-b border-border bg-black min-h-[380px] lg:min-h-[460px] relative overflow-hidden
+                  ${idx === 0 ? 'md:border-r' : ''} 
+                  transition-colors duration-300
                 `}
               >
-                <div className="mb-6 font-mono text-2xl text-zinc-500 group-hover:text-white transition-colors">
-                  {service.number}
+                {/* Background image (B/W -> color on hover) */}
+                <img
+                  src={domain.imageSrc}
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-cover grayscale saturate-0 opacity-70 transition-all duration-500 group-hover:grayscale-0 group-hover:saturate-100 group-hover:opacity-95"
+                />
+
+                {/* Readability overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/15" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-border" />
+
+                {/* Number pinned to top */}
+                <div className="absolute left-8 top-8 lg:left-12 lg:top-12 z-10 font-mono text-3xl text-zinc-200 transition-colors group-hover:text-white">
+                  {domain.number}
                 </div>
-                <h4 className="text-xl font-bold mb-3">{service.title}</h4>
-                <p className="text-zinc-400 text-sm leading-relaxed font-light">
-                  {service.description}
-                </p>
+
+                {/* Content pinned to bottom */}
+                <div className="relative z-10 flex h-full flex-col justify-end p-8 lg:p-12">
+                  <h4 className="text-2xl md:text-3xl font-bold mb-4 text-white">{domain.title}</h4>
+                  <p className="text-zinc-200 text-base md:text-lg leading-relaxed font-light max-w-[52ch]">
+                    {domain.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
