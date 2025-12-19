@@ -15,20 +15,20 @@ const domains: DomainItem[] = [
     number: '01',
     title: 'Psyche',
     description: 'Cognitive systems for individuals and human-AI collaboration. Externalizing thought. Integrating intelligence.',
-    imageSrc: '/domains/psyche.png',
+    imageSrc: '/domains/polis.png',
   },
   {
     id: 'polis',
     number: '02',
     title: 'Polis',
     description: 'Coordination systems for collectives. Distributed governance. Organizations that learn.',
-    imageSrc: '/domains/polis.png',
+    imageSrc: '/domains/psyche.png',
   }
 ];
 
 export const Offerings: React.FC = () => {
   return (
-    <Section id="offerings" className="bg-transparent border-t-0 pt-32 min-h-screen overflow-hidden">
+    <Section id="offerings" noBorderBottom className="bg-transparent border-t-0 pt-32 min-h-screen overflow-hidden">
       {/* One-piece fade from global grid -> solid background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -77,7 +77,22 @@ export const Offerings: React.FC = () => {
                 <img
                   src={domain.imageSrc}
                   alt=""
-                  className="absolute inset-0 h-full w-full object-cover grayscale saturate-0 opacity-70 transition-all duration-500 group-hover:grayscale-0 group-hover:saturate-100 group-hover:opacity-95"
+                  className={`
+                    absolute inset-0 h-full w-full object-cover
+                    grayscale saturate-0 opacity-70
+                    will-change-transform
+                    group-hover:grayscale-0 group-hover:saturate-100 group-hover:opacity-95
+                    ${idx === 0
+                      ? // Psyche (left): subtle drift + zoom
+                        'group-hover:scale-[1.06] group-hover:translate-x-[-1.5%] group-hover:translate-y-[-1%]'
+                      : // Polis (right): slow zoom + slight rotation
+                        'group-hover:scale-[1.07] group-hover:rotate-[1.25deg]'}
+                  `}
+                  style={{
+                    // Keep the slow transform drift/zoom, but bring color in faster.
+                    transition:
+                      'transform 5200ms ease-out, filter 900ms ease-out, opacity 900ms ease-out',
+                  }}
                 />
 
                 {/* Readability overlays */}
