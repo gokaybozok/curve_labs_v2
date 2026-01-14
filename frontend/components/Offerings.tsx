@@ -58,7 +58,7 @@ export const Offerings: React.FC = () => {
           </div>
 
           {/* Domains Grid - Spanning 3 columns */}
-          <div className="col-span-1 lg:col-span-3 grid grid-cols-1 md:grid-cols-2 relative">
+          <div className="col-span-1 lg:col-span-3 grid grid-cols-1 md:grid-cols-2 md:grid-rows-1 relative">
             {/* Bottom-left vertical + bottom-right horizontal accents */}
             <div className="hidden lg:block pointer-events-none absolute left-0 top-full h-40 w-px bg-border/70" />
             <div className="hidden lg:block pointer-events-none absolute right-0 top-full h-px w-20 bg-border/70" />
@@ -67,7 +67,7 @@ export const Offerings: React.FC = () => {
               <div
                 key={domain.id}
                 className={`
-                  group border-b border-border bg-black min-h-[380px] lg:min-h-[460px] relative overflow-hidden
+                  group border-b border-border bg-black min-h-[380px] lg:min-h-[460px] h-full relative overflow-hidden
                   ${idx === 0 ? 'md:border-r' : ''} 
                   transition-colors duration-300
                 `}
@@ -104,9 +104,9 @@ export const Offerings: React.FC = () => {
                 </div>
 
                 {/* Content pinned to bottom */}
-                <div className="relative z-10 flex h-full flex-col justify-end p-8 lg:p-12">
+                <div className="absolute bottom-0 left-0 right-0 z-10 p-8 lg:p-12">
                   <h4 className="text-2xl md:text-3xl font-header font-bold mb-4 text-white">{domain.title}</h4>
-                  <p className="text-zinc-200 text-base md:text-lg leading-relaxed font-body-text font-light">
+                  <p className="text-zinc-200 text-base md:text-lg leading-relaxed font-body-text font-light h-[78px]">
                     {domain.description}
                   </p>
                 </div>
