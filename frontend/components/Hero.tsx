@@ -7,9 +7,9 @@ export const Hero: React.FC = () => {
       {/* Grid background with scattered UI elements */}
       <HeroGridBackground />
 
-      {/* Centered content overlay */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-        <div className="w-full max-w-[1400px] px-8 flex flex-col items-center relative">
+      {/* Centered content overlay - positioned below navbar with explicit height for proper centering */}
+      <div className="absolute top-20 left-0 right-0 h-[calc(100vh-80px)] z-10 flex items-center justify-center pointer-events-none">
+        <div className="max-w-[1400px] px-8 flex flex-col items-center relative -mt-[280px]">
           {/* Radial gradient for readability */}
           <div
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] -z-10"
@@ -34,7 +34,7 @@ export const Hero: React.FC = () => {
 
           {/* "Digital Souls" text */}
           <p
-            className="font-stitch-warrior text-[56px] md:text-[205.56px] leading-none text-center"
+            className="font-stitch-warrior w-full text-[56px] md:text-[205.56px] leading-none text-center"
             style={{
               color: '#FFFFFF',
               fontWeight: 400,

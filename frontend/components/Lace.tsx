@@ -84,11 +84,11 @@ export const Lace: React.FC = () => {
             />
 
             <div className="relative z-10">
-              <h2 className="text-5xl md:text-7xl font-header tracking-widest mb-8 mt-8 md:mt-10 flex items-center gap-4">
+              <h2 className="text-5xl md:text-7xl font-header font-bold mb-8 mt-8 md:mt-10 flex items-center gap-4">
                 <img src={laceStar} alt="" className="w-12 h-12 md:w-16 md:h-16" />
                 LACE
               </h2>
-              <p className="text-xl text-white font-body-text font-light leading-relaxed max-w-2xl">
+              <p className="text-2xl text-white font-body-text font-light leading-relaxed max-w-2xl">
                 From static archives to evolutive cognitive systems.
                 <br /><br />
                 Capture fragments. Watch patterns emerge. Inhabit your own knowledge.
