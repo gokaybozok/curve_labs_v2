@@ -1,66 +1,167 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cybernetics Lab</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              mono: ['JetBrains Mono', 'monospace'],
-            },
-            colors: {
-              background: '#09090b', // zinc-950
-              surface: '#18181b', // zinc-900
-              border: '#27272a', // zinc-800
-            }
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cybernetics Lab</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            display: ['Florderuina', 'sans-serif'],
+            header: ['Inter-Medium', 'sans-serif'],
+            'body-text': ['Inter', 'sans-serif'],
+            nav: ['Format_1452', 'sans-serif'],
+            'stitch-warrior': ['Stitch Warrior', 'sans-serif'],
+          },
+          colors: {
+            background: '#09090b', // zinc-950
+            surface: '#18181b', // zinc-900
+            border: '#27272a', // zinc-800
           }
         }
       }
-    </script>
-    <script>
-      // Ensure the page always starts at the very top on first open / refresh.
-      // (Some browsers restore scroll after JS loads unless we disable it early.)
-      try {
-        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-        // If the URL includes a hash (e.g. `/#about`), don't "resume" there on open/refresh.
-        // Always start at the Hero/top. Navbar clicks will re-add hashes normally.
-        if (window.location.hash) {
-          history.replaceState(null, '', window.location.pathname + window.location.search);
-        }
+    }
+  </script>
+  <script>
+    // Ensure the page always starts at the very top on first open / refresh.
+    // (Some browsers restore scroll after JS loads unless we disable it early.)
+    try {
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      // If the URL includes a hash (e.g. `/#about`), don't "resume" there on open/refresh.
+      // Always start at the Hero/top. Navbar clicks will re-add hashes normally.
+      if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
 
-        window.scrollTo(0, 0);
-        window.addEventListener('pageshow', (e) => {
-          // Handle back/forward cache restores (Safari/iOS).
-          if (e.persisted) window.scrollTo(0, 0);
-        });
-      } catch {}
-    </script>
-    <style>
-      /* Custom scrollbar to match the technical aesthetic */
-      ::-webkit-scrollbar {
-        width: 8px;
+      window.scrollTo(0, 0);
+      window.addEventListener('pageshow', (e) => {
+        // Handle back/forward cache restores (Safari/iOS).
+        if (e.persisted) window.scrollTo(0, 0);
+      });
+    } catch { }
+  </script>
+  <style>
+    /* Florderuina Ruina font - ornate gothic blackletter with dotted style */
+    @font-face {
+      font-family: 'Florderuina';
+      src: url('/fonts/FlorDeRuina-Ruina.woff2') format('woff2'),
+        url('/fonts/FlorDeRuina-Ruina.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Custom Fonts */
+    @font-face {
+      font-family: 'FT88-Gothique';
+      src: url('/fonts/FT88-Gothique.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'N27-Light';
+      src: url('/fonts/N27-Light.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Format_1452';
+      src: url('/fonts/Format_1452.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Stitch Warrior';
+      src: url('/fonts/StitchWarrior demo.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Inter-Medium';
+      src: url('/fonts/Inter-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Custom scrollbar to match the technical aesthetic */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #09090b;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #27272a;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3f3f46;
+    }
+
+    @keyframes lamp-pulse {
+      0% {
+        opacity: 1;
+        filter: blur(0px);
+        color: #a1a1aa;
       }
-      ::-webkit-scrollbar-track {
-        background: #09090b;
+
+      25% {
+        opacity: 0.8;
+        filter: blur(1px);
+        color: rgba(161, 161, 170, 0.8);
       }
-      ::-webkit-scrollbar-thumb {
-        background: #27272a;
+
+
+      50% {
+        opacity: 0.3;
+        filter: blur(5px);
+        color: rgba(161, 161, 170, 0.3);
       }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #3f3f46;
+
+      80% {
+        opacity: 0.8;
+        filter: blur(1px);
+        color: rgba(161, 161, 170, 0.8);
       }
-    </style>
+
+
+      100% {
+        opacity: 1;
+        filter: blur(0px);
+        color: #a1a1aa;
+      }
+    }
+
+    .animate-lamp {
+      animation: lamp-pulse 5s ease-in-out infinite;
+    }
+  </style>
 </head>
-  <body class="bg-background text-zinc-100 antialiased selection:bg-zinc-700 selection:text-white">
-    <div id="root"></div>
+
+<body class="bg-background text-zinc-100 antialiased selection:bg-zinc-700 selection:text-white">
+  <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
-</html>
 
+</html>

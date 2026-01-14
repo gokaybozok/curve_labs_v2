@@ -301,7 +301,7 @@ export const SemanticGraph3D: React.FC<SemanticGraph3DProps> = ({ compact = fals
         const fontSize = 42;
         const weight = '400';
 
-        ctx.font = `${weight} ${fontSize}px "JetBrains Mono", monospace`;
+        ctx.font = `${weight} ${fontSize}px "Format_1452", sans-serif`;
         ctx.fillStyle = '#22d3ee';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';

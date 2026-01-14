@@ -39,21 +39,21 @@ export const Offerings: React.FC = () => {
       />
 
       {/* Decorative Grid Lines */}
-      <div className="relative max-w-[1600px] mx-auto">
+      <div className="relative max-w-[1680px] mx-auto">
         <div className="absolute right-0 bottom-0 w-1/3 h-px bg-border"></div>
-        <div className="absolute right-1/3 bottom-0 w-px h-32 bg-border"></div>
+        <div className=""></div>
       </div>
-      <div className="max-w-[1600px] mx-auto pb-64 relative z-10">
+      <div className="max-w-[1680px] mx-auto pb-64 relative z-10">
         {/* Decorative corner lines (as drawn) */}
         <div className="hidden lg:block pointer-events-none absolute left-0 top-0 h-px w-[420px] bg-border/70" />
 
         <div className="grid grid-cols-1 lg:grid-cols-4">
-          
+
           {/* Header Column */}
           <div className="p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-border">
-            <h2 className="font-mono text-xs text-zinc-500 mb-4 uppercase tracking-widest">[01] Domains</h2>
-            <h3 className="text-3xl font-bold mb-6 tracking-tight">Domains</h3>
-            <p className="text-zinc-300 text-lg md:text-xl leading-relaxed">
+            <h2 className="font-nav text-xs text-zinc-500 mb-4 uppercase tracking-widest">[01] Domains</h2>
+            <h3 className="text-3xl font-header font-bold mb-6 tracking-tight">Domains</h3>
+            <p className="text-zinc-300 text-lg md:text-xl leading-relaxed font-body-text font-light">
               Our digital souls operate at two scales.
             </p>
           </div>
@@ -65,8 +65,8 @@ export const Offerings: React.FC = () => {
             <div className="hidden lg:block pointer-events-none absolute right-0 top-full h-px w-20 bg-border/70" />
 
             {domains.map((domain, idx) => (
-              <div 
-                key={domain.id} 
+              <div
+                key={domain.id}
                 className={`
                   group border-b border-border bg-black min-h-[380px] lg:min-h-[460px] relative overflow-hidden
                   ${idx === 0 ? 'md:border-r' : ''} 
@@ -84,9 +84,9 @@ export const Offerings: React.FC = () => {
                     group-hover:grayscale-0 group-hover:saturate-100 group-hover:opacity-95
                     ${idx === 0
                       ? // Psyche (left): subtle drift + zoom
-                        'group-hover:scale-[1.06] group-hover:translate-x-[-1.5%] group-hover:translate-y-[-1%]'
+                      'group-hover:scale-[1.06] group-hover:translate-x-[-1.5%] group-hover:translate-y-[-1%]'
                       : // Polis (right): slow zoom + slight rotation
-                        'group-hover:scale-[1.07] group-hover:rotate-[1.25deg]'}
+                      'group-hover:scale-[1.07] group-hover:rotate-[1.25deg]'}
                   `}
                   style={{
                     // Keep the slow transform drift/zoom, but bring color in faster.
@@ -100,14 +100,14 @@ export const Offerings: React.FC = () => {
                 <div className="absolute inset-0 ring-1 ring-inset ring-border" />
 
                 {/* Number pinned to top */}
-                <div className="absolute left-8 top-8 lg:left-12 lg:top-12 z-10 font-mono text-3xl text-zinc-200 transition-colors group-hover:text-white">
+                <div className="absolute left-8 top-8 lg:left-12 lg:top-12 z-10 font-nav text-3xl text-zinc-200 transition-colors group-hover:text-white">
                   {domain.number}
                 </div>
 
                 {/* Content pinned to bottom */}
                 <div className="relative z-10 flex h-full flex-col justify-end p-8 lg:p-12">
-                  <h4 className="text-2xl md:text-3xl font-bold mb-4 text-white">{domain.title}</h4>
-                  <p className="text-zinc-200 text-base md:text-lg leading-relaxed font-light max-w-[52ch]">
+                  <h4 className="text-2xl md:text-3xl font-header font-bold mb-4 text-white">{domain.title}</h4>
+                  <p className="text-zinc-200 text-sm md:text-base leading-relaxed font-body-text font-light">
                     {domain.description}
                   </p>
                 </div>

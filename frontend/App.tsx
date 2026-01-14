@@ -7,6 +7,7 @@ import { About } from './components/About';
 import { Team } from './components/Team';
 import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
+import ContactOverlay from './components/ContactOverlay';
 
 let activeScrollRaf: number | null = null;
 
@@ -132,21 +133,31 @@ function App() {
     };
   }, []);
 
+  const [isFormOpen, setIsFormOpen] = React.useState(false);
+  const handleOpenForm = () => {
+    setIsFormOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+  const handleCloseForm = () => {
+    setIsFormOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+
   return (
     <div className="min-h-screen text-zinc-100 flex flex-col relative overflow-x-hidden">
       {/* Base dark background */}
       <div className="fixed inset-0 bg-background z-0"></div>
-      
+
       {/* Global decorative background grid */}
-      <div className="fixed inset-0 pointer-events-none z-[1] opacity-60" 
-           style={{ 
-             backgroundImage: 'linear-gradient(to right, #27272a 1px, transparent 1px), linear-gradient(to bottom, #27272a 1px, transparent 1px)',
-            backgroundSize: '120px 120px',
-            // Offset so we don't get a prominent line at the very top / under the nav.
-            backgroundPosition: '60px 60px',
-           }}>
+      <div className="fixed inset-0 pointer-events-none z-[1] opacity-60"
+        style={{
+          backgroundImage: 'linear-gradient(to right, #27272a 1px, transparent 1px), linear-gradient(to bottom, #27272a 1px, transparent 1px)',
+          backgroundSize: '120px 120px',
+          // Offset so we don't get a prominent line at the very top / under the nav.
+          backgroundPosition: '60px 60px',
+        }}>
       </div>
-      
+
       <div className="relative z-10">
         <Navbar />
         <main>
@@ -155,10 +166,14 @@ function App() {
           <Lace />
           <About />
           <Team />
-          <CTA />
+          <CTA onOpen={handleOpenForm} />
         </main>
         <Footer />
       </div>
+
+      <React.Suspense fallback={null}>
+        <ContactOverlay isOpen={isFormOpen} onClose={handleCloseForm} />
+      </React.Suspense>
     </div>
   );
 }

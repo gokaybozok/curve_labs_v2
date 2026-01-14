@@ -15,7 +15,7 @@ const CodeSnippet: React.FC<{ seed: number }> = ({ seed }) => {
   }, [seed]);
 
   return (
-    <div className="font-mono text-[9px] text-zinc-500 leading-tight tracking-tight">
+    <div className="font-nav text-[9px] text-zinc-500 leading-tight tracking-tight">
       {lines.map((line, i) => (
         <div key={i} className={i === 0 ? 'text-zinc-200 font-bold mb-1' : ''}>
           {i > 0 && <span className="mr-1 opacity-50">{`>`}</span>}
@@ -144,7 +144,7 @@ const GenerativeGlyph: React.FC<{ seed: number }> = ({ seed }) => {
   );
 };
 
-/* --- Grid Cell --- */
+/* --- Grid Cell with Hover Animation --- */
 
 const GridCell: React.FC<{ index: number }> = ({ index }) => {
   const [isRevealed, setIsRevealed] = useState(false);
@@ -172,27 +172,34 @@ const GridCell: React.FC<{ index: number }> = ({ index }) => {
 
   return (
     <div
-      className="relative w-full h-full border border-border/40"
+      className="relative w-full h-full border border-zinc-800/60"
       style={{ perspective: '1000px' }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {/* Default State: tiny marker */}
-      <div className={`absolute top-0 right-0 p-1 transition-opacity duration-500 ${isRevealed ? 'opacity-0' : 'opacity-100'}`}>
+      <div
+        className={`absolute top-0 right-0 p-1 ${isRevealed ? 'opacity-0' : 'opacity-100'}`}
+        style={{ transition: 'opacity 0.1s ease-out' }}
+      >
         <div className="w-1 h-1 bg-zinc-800" />
       </div>
 
       {/* Flipping content */}
       <motion.div
-        className="absolute inset-0 z-10 flex items-center justify-center overflow-hidden bg-background border border-border"
+        className="absolute inset-0 z-10 flex items-center justify-center overflow-hidden bg-zinc-950 border border-zinc-800/60"
         initial="hidden"
         animate={isRevealed ? 'visible' : 'hidden'}
         variants={{
-          hidden: { rotateY: 180, opacity: 0 },
+          hidden: {
+            rotateY: 90,
+            opacity: 0,
+            transition: { duration: 0.15, ease: 'easeOut' }
+          },
           visible: {
             rotateY: 0,
             opacity: 1,
-            transition: { type: 'spring', stiffness: 180, damping: 24, mass: 1 },
+            transition: { type: 'spring', stiffness: 400, damping: 30, mass: 0.8 },
           },
         }}
         style={{ backfaceVisibility: 'hidden' }}
@@ -204,8 +211,8 @@ const GridCell: React.FC<{ index: number }> = ({ index }) => {
           {variant === 3 && <Geometric seed={index} />}
         </div>
 
-        <div className="absolute top-1 left-1 text-[6px] font-mono text-zinc-600">0{index % 5}</div>
-        <div className="absolute bottom-1 right-1 text-[6px] font-mono text-zinc-600">
+        <div className="absolute top-1 left-1 text-[6px] font-nav text-zinc-600">0{index % 5}</div>
+        <div className="absolute bottom-1 right-1 text-[6px] font-nav text-zinc-600">
           {variant === 0 ? 'GLY' : variant === 1 ? 'DAT' : variant === 2 ? 'WAV' : 'GEO'}
         </div>
       </motion.div>
@@ -223,31 +230,30 @@ export const HeroGridBackground: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Density (match your reference feel)
-  const cellSize = 120; // match global grid rhythm
-  const cols = Math.ceil(windowSize.w / cellSize);
-  const rows = Math.ceil(windowSize.h / cellSize);
+  // Density (match reference feel)
+  const cellSize = 140;
+  const cols = Math.ceil(windowSize.w / cellSize) + 1;
+  const rows = Math.ceil(windowSize.h / cellSize) + 1;
   const totalCells = cols * rows;
 
   return (
     <div
-      className="absolute inset-0 z-0 overflow-hidden select-none pointer-events-auto bg-background"
+      className="absolute inset-0 z-0 overflow-hidden select-none pointer-events-auto bg-zinc-950"
       style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${cols}, ${cellSize}px)`,
         gridTemplateRows: `repeat(${rows}, ${cellSize}px)`,
+        justifyContent: 'center',
       }}
     >
-      {windowSize.w > 0 && Array.from({ length: totalCells }).map((_, i) => <GridCell key={i} index={i} />)}
-      {/* Smooth fade into base background (prevents seam artifacts) */}
+      {windowSize.w > 0 && Array.from({ length: totalCells }).map((_, i) => (
+        <GridCell key={i} index={i} />
+      ))}
+      {/* Bottom fade-to-black gradient for smooth scroll transition */}
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[360px]"
-        style={{
-          background:
-            'linear-gradient(to bottom, rgba(9,9,11,0) 0%, rgba(9,9,11,0.35) 40%, rgba(9,9,11,0.75) 75%, rgba(9,9,11,1) 100%)',
-        }}
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10"
+        style={{ background: 'linear-gradient(to bottom, transparent, #09090b)' }}
       />
     </div>
   );
 };
-
