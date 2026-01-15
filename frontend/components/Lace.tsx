@@ -55,7 +55,7 @@ export const Lace: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2">
 
           {/* Left: Product Intro */}
-          <div className="p-8 lg:p-12 flex flex-col justify-between min-h-[500px] relative overflow-hidden">
+          <div className="p-8 lg:p-24 flex flex-col justify-between min-h-[600px] relative overflow-hidden">
             {/* Background image only on the left column */}
             <div
               className="absolute inset-0 bg-center bg-cover opacity-90 contrast-[1.08] saturate-[0.97]"
@@ -84,11 +84,11 @@ export const Lace: React.FC = () => {
             />
 
             <div className="relative z-10">
-              <h2 className="text-xl md:text-2xl font-header font-bold tracking-tighter mb-6 mt-8 md:mt-10 flex items-center gap-4">
-                <img src={laceStar} alt="" className="w-10 h-10 md:w-12 md:h-12" />
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 mt-8 md:mt-10 flex items-center gap-4">
+                <img src={laceStar} alt="" className="w-12 h-12 md:w-16 md:h-16" />
                 LACE
               </h2>
-              <p className="text-[10px] md:text-[11px] text-zinc-300 font-body-text font-light leading-relaxed max-w-xl opacity-80">
+              <p className="text-xl text-white font-light leading-relaxed max-w-2xl">
                 From static archives to evolutive cognitive systems.
                 <br /><br />
                 Capture fragments. Watch patterns emerge. Inhabit your own knowledge.
@@ -100,7 +100,7 @@ export const Lace: React.FC = () => {
                 href="https://meetlace.ai/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 text-sm md:text-base font-nav text-white hover:text-zinc-300 transition-colors border-b border-white hover:border-zinc-300 pb-1"
+                className="inline-flex items-center gap-3 text-base md:text-lg font-mono text-white hover:text-zinc-300 transition-colors border-b border-white hover:border-zinc-300 pb-1"
               >
                 EXPLORE LACE →
               </a>
