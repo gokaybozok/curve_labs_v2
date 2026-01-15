@@ -27,17 +27,17 @@ export const Navbar: React.FC = () => {
           <a
             href="#offerings"
             onClick={handleNavClick('offerings')}
-            className="font-nav text-sm text-zinc-400 hover:text-white transition-colors"
+            className="font-nav text-sm font-medium text-zinc-400 hover:text-white transition-colors"
           >
             [01] DOMAINS
           </a>
-          <a href="#lace" onClick={handleNavClick('lace')} className="font-nav text-sm text-zinc-400 hover:text-white transition-colors">
+          <a href="#lace" onClick={handleNavClick('lace')} className="font-nav text-sm font-medium text-zinc-400 hover:text-white transition-colors">
             [02] LACE
           </a>
-          <a href="#about" onClick={handleNavClick('about')} className="font-nav text-sm text-zinc-400 hover:text-white transition-colors">
+          <a href="#about" onClick={handleNavClick('about')} className="font-nav text-sm font-medium text-zinc-400 hover:text-white transition-colors">
             [03] ABOUT
           </a>
-          <a href="#team" onClick={handleNavClick('team')} className="font-nav text-sm text-zinc-400 hover:text-white transition-colors">
+          <a href="#team" onClick={handleNavClick('team')} className="font-nav text-sm font-medium text-zinc-400 hover:text-white transition-colors">
             [04] TEAM
           </a>
         </div>

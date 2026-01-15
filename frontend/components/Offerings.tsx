@@ -51,8 +51,8 @@ export const Offerings: React.FC = () => {
           {/* Header Column */}
           <div className="p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-border">
             <h2 className="font-nav text-xs text-zinc-500 mb-4 uppercase tracking-widest">[01] Domains</h2>
-            <h3 className="text-4xl font-header font-bold mb-6 tracking-tight">Domains</h3>
-            <p className="text-zinc-300 text-xl md:text-2xl leading-relaxed font-body-text font-light">
+            <h3 className="text-xl md:text-3xl font-header font-bold mb-6 tracking-tight">Domains</h3>
+            <p className="text-zinc-300 text-sm md:text-base leading-relaxed font-body-text">
               Our digital souls operate at two scales.
             </p>
           </div>
@@ -104,9 +104,9 @@ export const Offerings: React.FC = () => {
                 </div>
 
                 {/* Content pinned to bottom */}
-                <div className="absolute bottom-0 left-0 right-0 z-10 p-8 lg:p-12">
-                  <h4 className="text-2xl md:text-3xl font-header font-bold mb-4 text-white">{domain.title}</h4>
-                  <p className="text-zinc-200 text-base md:text-lg leading-relaxed font-body-text font-light h-[78px]">
+                <div className="absolute bottom-0 left-0 right-0 z-10 p-8 lg:p-12 text-left">
+                  <h4 className="text-xl md:text-2xl font-header font-bold mb-4 text-white">{domain.title}</h4>
+                  <p className="text-zinc-200 text-sm md:text-base leading-relaxed font-body-text h-auto">
                     {domain.description}
                   </p>
                 </div>

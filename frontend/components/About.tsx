@@ -11,10 +11,10 @@ export const About: React.FC = () => {
 
         <div className="p-8 lg:p-24 min-h-[70vh] flex items-center justify-center">
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-4xl md:text-6xl font-header font-bold tracking-tight text-white mb-10 text-center">
+            <h3 className="text-xl md:text-3xl font-header font-bold tracking-tight text-white mb-10 text-center">
               About
             </h3>
-            <p className="text-zinc-300 text-lg md:text-2xl leading-relaxed font-body-text text-center">
+            <p className="text-zinc-300 text-sm md:text-base leading-relaxed font-body-text text-center">
               We build digital souls—systems that persist, learn, and evolve. From coordination infrastructure for collectives to cognitive
               architectures for human / ai collaboration, our work focuses on what holds intelligence together across complexity and change.
             </p>

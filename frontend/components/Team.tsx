@@ -36,7 +36,7 @@ export const Team: React.FC = () => {
               </div>
               <h3 className="text-lg font-header font-bold mb-1">{member.name}</h3>
               <div className="font-nav text-xs text-zinc-500 mb-4 uppercase">{member.role}</div>
-              <p className="text-zinc-400 text-sm leading-relaxed font-body-text font-light">
+              <p className="text-zinc-400 text-sm leading-relaxed font-body-text">
                 {member.bio}
               </p>
             </div>

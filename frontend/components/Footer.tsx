@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
             <a href="https://blog.curvelabs.eu/" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-colors text-sm font-nav">Medium</a>
           </div>
           <span className="font-nav text-xs text-zinc-600">
-            © {new Date().getFullYear()} CL Cybernetix GmbH. ALL SYSTEMS NOMINAL.
+            © {new Date().getFullYear()} CL Cybernetix GmbH.
           </span>
         </div>
       </div>

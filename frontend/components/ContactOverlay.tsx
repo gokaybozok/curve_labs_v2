@@ -74,7 +74,7 @@ export default function ContactOverlay({ isOpen, onClose }: Props) {
                                     <CheckCircle2 size={40} />
                                 </div>
                                 <div>
-                                    <h3 className="text-3xl font-light">Transmission Complete</h3>
+                                    <h3 className="text-3xl">Transmission Complete</h3>
                                     <p className="font-mono text-sm text-neutral-500">We’ve received your message.</p>
                                 </div>
                                 <button

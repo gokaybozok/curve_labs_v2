@@ -16,11 +16,11 @@ export const CTA: React.FC<{ onOpen?: () => void }> = ({ onOpen }) => {
           ></div>
 
           <div className="font-nav text-xs tracking-widest text-zinc-500 relative z-10">
-            [05] CONTACT
+            [05]
           </div>
 
           <div className="relative z-10 space-y-4 w-full">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-header font-bold tracking-tight text-white">
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-header font-bold tracking-tight text-white">
               The Lab is open.
             </h2>
             <p className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-2xl font-body-text">

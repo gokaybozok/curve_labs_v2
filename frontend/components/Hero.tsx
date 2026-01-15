@@ -12,16 +12,16 @@ export const Hero: React.FC = () => {
         <div className="max-w-[1400px] px-8 flex flex-col items-center relative -mt-[280px]">
           {/* Radial gradient for readability */}
           <div
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] -z-10"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[157.5%] h-[157.5%] -z-10"
             style={{
-              background: 'radial-gradient(circle at center, #09090b 0%, rgba(9, 9, 11, 0) 70%)',
+              background: 'radial-gradient(circle at center, #0D0D0E 18%, rgba(13, 13, 14, 0) 100%)',
               filter: 'blur(50px)',
             }}
           />
 
           {/* "We Build" text */}
           <p
-            className="font-stitch-warrior mb-4 md:mb-6 text-[42px] md:text-[89.54px] leading-none text-center"
+            className="font-stitch-warrior mb-0 md:mb-1 text-[42px] md:text-[89.54px] leading-none text-center"
             style={{
               color: '#FFFFFF66',
               fontWeight: 400,
