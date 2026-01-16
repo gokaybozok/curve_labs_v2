@@ -22,6 +22,22 @@ export default function ContactOverlay({ isOpen, onClose }: Props) {
         }
     }, [isOpen]);
 
+    // Prevent page shift when overlay opens by compensating for scrollbar
+    useEffect(() => {
+        if (isOpen) {
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+            document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = `${scrollbarWidth}px`;
+        } else {
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+        };
+    }, [isOpen]);
+
     const submit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setFormState('SENDING');
@@ -57,9 +73,6 @@ export default function ContactOverlay({ isOpen, onClose }: Props) {
             >
                 <div className="flex justify-end border-b border-white/20 p-4 md:p-6">
                     <button onClick={onClose} className="group flex items-center gap-3 text-neutral-400 hover:text-white">
-                        <span className="hidden md:inline font-mono text-xs uppercase tracking-widest opacity-50 group-hover:opacity-100">
-                            Abort_Sequence
-                        </span>
                         <span className="border border-white/20 p-2 group-hover:bg-white group-hover:text-black transition">
                             <X size={20} />
                         </span>
@@ -87,24 +100,28 @@ export default function ContactOverlay({ isOpen, onClose }: Props) {
                         ) : (
                             <form onSubmit={submit} className="w-full max-w-4xl space-y-4 md:space-y-6">
                                 <div className="grid gap-4 md:gap-6 md:grid-cols-2">
-                                    <label className="font-mono text-xs text-neutral-500 space-y-1">
-                                        [01] IDENTIFIER / NAME
-                                        <input name="name" className="w-full border-b border-white/20 bg-transparent py-1 md:py-2 text-base md:text-lg placeholder-neutral-700 focus:border-white outline-none" required />
-                                    </label>
-                                    <label className="font-mono text-xs text-neutral-500 space-y-1">
-                                        [02] FREQUENCY / EMAIL
-                                        <input name="email" type="email" className="w-full border-b border-white/20 bg-transparent py-1 md:py-2 text-base md:text-lg placeholder-neutral-700 focus:border-white outline-none" required />
-                                    </label>
+                                    <div>
+                                        <label className="block font-mono text-xs text-neutral-500 mb-1">
+                                            [01] IDENTIFIER / NAME
+                                        </label>
+                                        <input name="name" className="w-full border-b border-white/20 bg-transparent pt-0 pb-1 md:pb-2 text-base md:text-lg placeholder-neutral-700 focus:border-white outline-none" required />
+                                    </div>
+                                    <div>
+                                        <label className="block font-mono text-xs text-neutral-500 mb-1">
+                                            [02] FREQUENCY / EMAIL
+                                        </label>
+                                        <input name="email" type="email" className="w-full border-b border-white/20 bg-transparent pt-0 pb-1 md:pb-2 text-base md:text-lg placeholder-neutral-700 focus:border-white outline-none" required />
+                                    </div>
                                 </div>
 
                                 <div className="relative z-10 full-width">
-                                    <label className={`font-mono text-xs mb-1 ${dropdownOpen ? 'text-white' : 'text-neutral-500'}`}>
-                                        [03] CONTEXT / SUBJECT
+                                    <label className={`block font-mono text-xs mb-1 ${dropdownOpen ? 'text-white' : 'text-neutral-500'}`}>
+                                        [03] SUBJECT
                                     </label>
                                     <button
                                         type="button"
                                         onClick={() => setDropdownOpen(!dropdownOpen)}
-                                        className={`w-full flex justify-between items-center border-b py-1 md:py-2 text-base md:text-lg ${dropdownOpen ? 'border-white' : 'border-white/20 hover:border-white/50'}`}
+                                        className={`w-full flex justify-between items-center border-b pt-0 pb-1 md:pb-2 text-sm md:text-base ${dropdownOpen ? 'border-white' : 'border-white/20 hover:border-white/50'}`}
                                     >
                                         <span>{subject}</span>
                                         <CornerDownRight size={16} className={`transition ${dropdownOpen ? 'text-white' : 'text-neutral-600'}`} />
@@ -121,7 +138,7 @@ export default function ContactOverlay({ isOpen, onClose }: Props) {
                                                             setSubject(opt);
                                                             setDropdownOpen(false);
                                                         }}
-                                                        className={`w-full text-left px-4 py-3 border-b border-white/10 text-lg ${subject === opt ? 'bg-white/5 text-white' : 'text-neutral-400 hover:bg-white/5 hover:text-white'}`}
+                                                        className={`w-full text-left px-3 py-2 border-b border-white/10 text-sm ${subject === opt ? 'bg-white/5 text-white' : 'text-neutral-400 hover:bg-white/5 hover:text-white'}`}
                                                     >
                                                         {opt}
                                                     </button>
@@ -131,10 +148,12 @@ export default function ContactOverlay({ isOpen, onClose }: Props) {
                                     )}
                                 </div>
 
-                                <label className="font-mono text-xs text-neutral-500 space-y-1">
-                                    [04] PAYLOAD / MESSAGE
-                                    <textarea name="message" rows={3} className="w-full border-b border-white/20 bg-transparent py-1 md:py-2 text-base md:text-lg placeholder-neutral-700 focus:border-white outline-none resize-none md:h-56" required />
-                                </label>
+                                <div>
+                                    <label className="block font-mono text-xs text-neutral-500 mb-1">
+                                        [04] MESSAGE
+                                    </label>
+                                    <textarea name="message" rows={3} className="w-full border-b border-white/20 bg-transparent pt-0 pb-1 md:pb-2 text-base md:text-lg placeholder-neutral-700 focus:border-white outline-none resize-none md:h-56" required />
+                                </div>
 
                                 <div className="flex justify-end pt-4">
                                     <button
@@ -146,7 +165,7 @@ export default function ContactOverlay({ isOpen, onClose }: Props) {
                                             }`}
                                     >
                                         <span className="relative z-10">
-                                            {formState === 'SENDING' ? 'TRANSMITTING...' : 'INITIATE_SEND'}
+                                            {formState === 'SENDING' ? 'SENDING...' : 'SEND'}
                                         </span>
                                         {/* Hover effect overlay */}
                                         <div className="absolute inset-0 bg-neutral-200 transform translate-y-full transition-transform duration-300 group-hover:translate-y-0 -z-0" />
