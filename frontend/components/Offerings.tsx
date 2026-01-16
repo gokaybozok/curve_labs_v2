@@ -15,14 +15,14 @@ const domains: DomainItem[] = [
     number: '01',
     title: 'Psyche',
     description: 'Cognitive systems for individuals and human-AI collaboration. Externalizing thought. Integrating intelligence.',
-    imageSrc: '/domains/polis.png',
+    imageSrc: '/domains/polis.jpg',
   },
   {
     id: 'polis',
     number: '02',
     title: 'Polis',
     description: 'Coordination systems for collectives. Distributed governance. Organizations that learn.',
-    imageSrc: '/domains/psyche.png',
+    imageSrc: '/domains/psyche.jpg',
   }
 ];
 
