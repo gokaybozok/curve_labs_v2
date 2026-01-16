@@ -82,8 +82,8 @@ export const About: React.FC = () => {
                 </p>
 
                 <div className="pt-8 opacity-80 border-t border-white/10 mt-8">
-                  <p className="font-mono text-xs text-zinc-500 tracking-[0.2em] uppercase">
-                    Founded in Berlin, 2020. Practitioners who research. Researchers who build.
+                  <p className="font-mono text-[13px] text-zinc-500 tracking-[0.2em] uppercase">
+                    Practitioners who research. Researchers who build. Est 2020, Berlin.
                   </p>
                 </div>
               </div>
