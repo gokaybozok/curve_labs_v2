@@ -1,4 +1,5 @@
 import React from 'react';
+import { LiquidMetal } from '@paper-design/shaders-react';
 import { HeroGridBackground } from './ui/HeroGridBackground';
 
 export const Hero: React.FC = () => {
@@ -32,30 +33,47 @@ export const Hero: React.FC = () => {
             We Build
           </p>
 
-          {/* "Digital Souls" text */}
-          <p
-            className="font-stitch-warrior w-full text-[56px] md:text-[205.56px] leading-none text-center"
-            style={{
-              color: '#FFFFFF',
-              fontWeight: 400,
-              fontStyle: 'normal',
-              wordSpacing: '-0.4em',
-            }}
-          >
-            Digital Souls
-          </p>
-
-          {/* Tagline */}
-          <p
-            className="text-zinc-400 font-mono mt-6 md:mt-8 uppercase animate-lamp text-[14px] md:text-[24.9px] leading-tight md:leading-none text-center px-4"
-            style={{
-              fontWeight: 400,
-              fontStyle: 'normal',
-            }}
-          >
-            Venture laboratory for relational technologies.
-          </p>
+          {/* "Digital Souls" ASCII art SVG with LiquidMetal effect */}
+          <div className="w-[75vw] max-w-[1300px] mt-4 ml-28 md:ml-46 relative" style={{ aspectRatio: '1303.4 / 271.46' }}>
+            {/* Fallback SVG that shows immediately */}
+            <img
+              src="/digital-souls.svg"
+              alt="Digital Souls"
+              className="absolute inset-0 w-full h-full"
+            />
+            {/* LiquidMetal effect on top */}
+            <LiquidMetal
+              speed={0.75}
+              softness={1}
+              repetition={1.98}
+              shiftRed={0}
+              shiftBlue={0}
+              distortion={0.14}
+              contour={1}
+              scale={1}
+              rotation={0}
+              shape="diamond"
+              angle={70}
+              image="/digital-souls.svg"
+              colorBack="#00000000"
+              colorTint="#FFFFFF"
+              style={{ width: '100%', height: '100%', backgroundColor: 'transparent', position: 'relative', zIndex: 1 }}
+            />
+          </div>
         </div>
+      </div>
+
+      {/* Tagline - positioned at bottom */}
+      <div className="absolute bottom-28 md:bottom-40 left-0 right-0 z-10 flex justify-center pointer-events-none">
+        <p
+          className="text-zinc-400 font-mono uppercase animate-lamp text-[14px] md:text-[24.9px] leading-tight md:leading-none text-center px-4"
+          style={{
+            fontWeight: 400,
+            fontStyle: 'normal',
+          }}
+        >
+          Venture laboratory for relational technologies.
+        </p>
       </div>
 
       {/* Subtle vignette overlay */}
