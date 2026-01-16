@@ -64,7 +64,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Tagline - positioned at bottom */}
-      <div className="absolute bottom-40 md:bottom-40 left-0 right-0 z-10 flex justify-center pointer-events-none">
+      <div className="absolute bottom-60 md:bottom-40 left-0 right-0 z-10 flex justify-center pointer-events-none">
         <p
           className="text-zinc-400 font-mono uppercase animate-lamp text-[14px] md:text-[24.9px] leading-tight md:leading-none text-center px-4"
           style={{

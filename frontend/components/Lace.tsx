@@ -53,10 +53,10 @@ export const Lace: React.FC = () => {
 
       <div className="w-full relative z-10">
         {/* Mobile header - clean background like About section */}
-        <div className="lg:hidden p-8 border-b border-border bg-background">
-          <h3 className="font-nav text-xs text-zinc-500 uppercase tracking-widest">
+        <div className="lg:hidden p-8 border-b border-border bg-background relative z-20">
+          <h2 className="font-mono text-xs text-zinc-500 uppercase tracking-widest">
             [02] Lace Research & Logs
-          </h3>
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2">
