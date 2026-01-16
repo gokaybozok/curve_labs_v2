@@ -5,7 +5,7 @@ import { Section } from './ui/Section';
 export const CTA: React.FC<{ onOpen?: () => void }> = ({ onOpen }) => {
   return (
     <Section id="contact" className="bg-background">
-      <div className="max-w-[1600px] mx-auto border-x border-border flex flex-col lg:flex-row min-h-[320px]">
+      <div className="max-w-[1600px] mx-auto border-x border-border flex flex-col lg:flex-row">
 
         {/* Text side */}
         <div className="flex-1 p-8 lg:p-12 flex flex-col gap-10 justify-center items-start text-left relative overflow-hidden">
@@ -28,7 +28,7 @@ export const CTA: React.FC<{ onOpen?: () => void }> = ({ onOpen }) => {
         {/* Arrow action side */}
         <button
           onClick={onOpen}
-          className="w-full lg:w-64 xl:w-80 border-t lg:border-t-0 lg:border-l border-border bg-background flex items-center justify-center cursor-pointer text-white group relative overflow-hidden appearance-none"
+          className="w-full lg:w-64 xl:w-80 min-h-[140px] lg:min-h-[320px] border-t lg:border-t-0 lg:border-l border-border bg-background flex items-center justify-center cursor-pointer text-white group relative overflow-hidden appearance-none"
           style={{ transition: 'background-color 150ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms cubic-bezier(0.4, 0, 0.2, 1)' }}
           onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#fff'; e.currentTarget.style.color = '#000'; }}
           onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = ''; e.currentTarget.style.color = '#fff'; }}

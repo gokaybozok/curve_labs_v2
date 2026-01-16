@@ -44,31 +44,31 @@ export const Offerings: React.FC = () => {
       </div>
       <div className="max-w-[1680px] mx-auto pb-64 relative z-10">
         {/* Decorative corner lines (as drawn) */}
-        <div className="hidden lg:block pointer-events-none absolute left-0 top-0 h-px w-[420px] bg-border/70" />
+        <div className="hidden sm:block pointer-events-none absolute left-0 top-0 h-px w-[420px] bg-border/70" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-4">
 
           {/* Header Column */}
-          <div className="p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-border">
+          <div className="p-8 sm:p-12 border-b sm:border-b-0 sm:border-r border-border">
             <h2 className="font-nav text-xs text-zinc-500 mb-4 uppercase tracking-widest">[01] Domains</h2>
-            <h3 className="text-xl md:text-3xl font-header font-bold mb-6 tracking-tight">Domains</h3>
-            <p className="text-zinc-300 text-sm md:text-base leading-relaxed font-body-text">
+            <h3 className="text-xl sm:text-3xl font-header font-bold mb-6 tracking-tight">Domains</h3>
+            <p className="text-zinc-300 text-[18px] leading-relaxed font-body-text">
               Our digital souls operate at two scales.
             </p>
           </div>
 
           {/* Domains Grid - Spanning 3 columns */}
-          <div className="col-span-1 lg:col-span-3 grid grid-cols-1 md:grid-cols-2 md:grid-rows-1 relative">
+          <div className="col-span-1 sm:col-span-3 grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-1 relative">
             {/* Bottom-left vertical + bottom-right horizontal accents */}
-            <div className="hidden lg:block pointer-events-none absolute left-0 top-full h-40 w-px bg-border/70" />
-            <div className="hidden lg:block pointer-events-none absolute right-0 top-full h-px w-20 bg-border/70" />
+            <div className="hidden sm:block pointer-events-none absolute left-0 top-full h-40 w-px bg-border/70" />
+            <div className="hidden sm:block pointer-events-none absolute right-0 top-full h-px w-20 bg-border/70" />
 
             {domains.map((domain, idx) => (
               <div
                 key={domain.id}
                 className={`
-                  group border-b border-border bg-black min-h-[380px] lg:min-h-[460px] h-full relative overflow-hidden
-                  ${idx === 0 ? 'md:border-r' : ''} 
+                  group border-b border-border bg-black min-h-[380px] sm:min-h-[460px] h-full relative overflow-hidden
+                  ${idx === 0 ? 'sm:border-r' : ''}
                   transition-colors duration-300
                 `}
               >
@@ -99,14 +99,14 @@ export const Offerings: React.FC = () => {
                 <div className="absolute inset-0 ring-1 ring-inset ring-border" />
 
                 {/* Number pinned to top */}
-                <div className="absolute left-8 top-8 lg:left-12 lg:top-12 z-10 font-nav text-3xl text-zinc-200 transition-colors group-hover:text-white">
+                <div className="absolute left-8 top-8 sm:left-12 sm:top-12 z-10 font-nav text-3xl text-zinc-200 transition-colors group-hover:text-white">
                   {domain.number}
                 </div>
 
                 {/* Content pinned to bottom */}
-                <div className="absolute bottom-0 left-0 right-0 z-10 p-8 lg:p-12 text-left">
-                  <h4 className="text-xl md:text-2xl font-header font-bold mb-4 text-white">{domain.title}</h4>
-                  <p className="text-zinc-200 text-sm md:text-base leading-relaxed font-body-text h-auto">
+                <div className="absolute bottom-0 left-0 right-0 z-10 p-8 sm:p-12 text-left">
+                  <h4 className="text-[30px] font-header font-bold mb-4 text-white">{domain.title}</h4>
+                  <p className="text-zinc-200 text-[18px] leading-relaxed font-body-text h-auto">
                     {domain.description}
                   </p>
                 </div>
