@@ -34,7 +34,7 @@ export const Hero: React.FC = () => {
           </p>
 
           {/* "Digital Souls" ASCII art SVG with LiquidMetal effect */}
-          <div className="w-[75vw] max-w-[1300px] mt-4 ml-28 md:ml-46 relative" style={{ aspectRatio: '1303.4 / 271.46' }}>
+          <div className="w-[75vw] max-w-[1300px] mt-4 ml-[30mm] md:ml-[34mm] relative" style={{ aspectRatio: '1303.4 / 271.46' }}>
             {/* Fallback SVG that shows immediately */}
             <img
               src="/digital-souls.svg"

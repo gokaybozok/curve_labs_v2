@@ -15,7 +15,7 @@ export const CTA: React.FC<{ onOpen?: () => void }> = ({ onOpen }) => {
             style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }}
           ></div>
 
-          <div className="relative z-10 space-y-4 w-full">
+          <div className="relative z-10 space-y-4 w-full mt-8">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white">
               The Lab is open.
             </h2>
