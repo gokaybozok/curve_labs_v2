@@ -73,11 +73,11 @@ export const About: React.FC = () => {
 
             {/* Left: Text Content - Left Aligned */}
             <div className="flex flex-col justify-center items-start w-full lg:w-1/2 z-10 order-1 lg:order-1">
-              <h3 className="font-bold tracking-tight text-white leading-none mb-8 pl-8 lg:pl-16" style={{ fontSize: '30px' }}>
+              <h3 className="font-bold tracking-tight text-white leading-none mb-8 px-0 lg:pl-16" style={{ fontSize: '30px' }}>
                 About
               </h3>
-              <div className="pl-8 lg:pl-16">
-                <p className="text-zinc-300 leading-relaxed font-light text-justify" style={{ fontSize: '20px' }}>
+              <div className="px-0 lg:pl-16">
+                <p className="text-zinc-300 leading-relaxed font-light text-left lg:text-justify" style={{ fontSize: '20px' }}>
                   We build digital souls—systems that persist, learn, and evolve. From coordination infrastructure for collectives to cognitive architectures for human / ai collaboration, our work focuses on what holds intelligence together across complexity and change.
                 </p>
 
